@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="container">
+        <div id="quizintro">
+            <h1>Welcome to a Coding Quiz</h1>
+            <p>Will be take a coding quiz to test your knowledge of basic coding questions. You will have one minute to complete the quiz. Wrong answer will deduct 20 seconds. If the timer runs out test will end. <br> Click on "Start Quiz" to begin.</p>
+            <div id="start">Start Quiz</div>
+        </div>
+        <div id="quiz" style="display: none;">
+            <div id="question"></div>
+            <div id="timer"></div>
+            <div id="choices">
+                <div class="choice" id="A" onclick="checkAnswer('A')"></div>
+                <div class="choice" id="B" onclick="checkAnswer('B')"></div>
+                <div class="choice" id="C" onclick="checkAnswer('C')"></div>
+            </div>
+        </div>
+        <div id="scoreContainer" style="display: none;">
+            <div id="playerScore">Your Score:</div>
+            <div id="saveScore">Tyoe Name to Save Score:</div>
+            <form id='nameForm' method="POST">
+                <input placeholder="Your Name" type="text" name="nameText" id="nameText"/>
+            </form>
+        </div>
+        <div id="highScore" style="display: none;">
+            <div class="innerDiv">High Score</div>
+            <div class ="innerDiv" id="highScoreOutput"></div>
+        </div>
+    </div>
+    <script type="text/javascript" src="script.js"></script>
+</body>
+</html> 
