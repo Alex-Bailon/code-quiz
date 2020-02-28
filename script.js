@@ -47,8 +47,6 @@ let scoreRenderCount = 0
 let scorePerCent = 0
 let highScoresArray = []
 
-init()
-
 function startQuiz(){
     quizintro.style.display = "none"
     quiz.style.display = "block"
@@ -57,8 +55,10 @@ function startQuiz(){
     formatTime(totalTime)
     
 }
-start.addEventListener("click", startQuiz)
 
+init()
+
+start.addEventListener("click", startQuiz)
 
 function renderQuestion(){
     let q = questions[runningQuestion]
@@ -70,7 +70,6 @@ function renderQuestion(){
 
 function checkAnswer(answer){
     if( answer == questions[runningQuestion].correct){
-        // answer is correct
         score++;
     }
     else{
@@ -82,7 +81,6 @@ function checkAnswer(answer){
         renderQuestion();
     }
     else{
-        // end the quiz and show the score
         scoreRender();
     }
 }
@@ -96,10 +94,7 @@ function scoreRender(){
     playerScore.innerHTML += scorePerCent +"%";
     scoreRenderCount++
     return scorePerCent
-
 }
-
-
 
 function formatTime(ms) {
     var minutes = Math.floor(ms / 60000)
@@ -108,7 +103,6 @@ function formatTime(ms) {
     if(seconds < 10) {
         seconds = '0' + seconds
     }
-    
     var timerEl = document.getElementById('timer')
     timerEl.textContent = `${ minutes }:${ seconds }`
     if (minutes == 0 && seconds == '00' && scoreRenderCount == 0){
@@ -123,14 +117,11 @@ function tick() {
 }
 
 function init() {
-var retrive = JSON.parse(localStorage.getItem("highScoresArray"))
-if (retrive !== null) {
+    var retrive = JSON.parse(localStorage.getItem("highScoresArray"))
+    if (retrive !== null) {
     highScoresArray = retrive;
   }
 }
-
-
-
 
 nameForm.addEventListener("submit", function(event){
     console.log(highScoresArray)
@@ -146,7 +137,6 @@ nameForm.addEventListener("submit", function(event){
     function compare(a, b) {
         const playerA = a.playerScore
         const playerB = b.playerScore
-      
         let comparison = 0;
         if (playerA > playerB) {
           comparison = 1;
@@ -162,6 +152,12 @@ nameForm.addEventListener("submit", function(event){
 })
 
 reset.addEventListener('click', function(){
+    highScoresArray = []
     scoreOutput.innerHTML = ''
     console.log(highScoresArray)
 })
+
+let warning = document.getElementById("warning")
+if (warning.style.display == 'block'){
+    alert("Hello")
+}

@@ -27,7 +27,7 @@ body{
     cursor: pointer;
     color :black;
     background-color: lightgray;
-    bottom: 0px;
+    /* bottom: 0px; */
     margin: 0 auto;
     
 }
@@ -78,7 +78,8 @@ body{
     font-size: 25px;
 }
 #scoreContainer,
-#highScore{
+#highScore,
+#quiz{
     margin : 20px auto;
     background-color: white;
     height: 350px;
@@ -101,3 +102,26 @@ body{
     width: 50%;
 }
 
+#warning{ 
+    padding: 25px;
+    display: none; 
+}
+
+@media screen and (orientation:portrait) and (max-width: 500px){
+
+    #container { 
+        display:none; 
+    }
+
+    #warning { 
+        display:block; 
+    }
+
+}
+
+@media screen and (orientation:landscape) and (max-height: 450px){
+    #container{
+        margin: 15px auto;
+    }
+
+}

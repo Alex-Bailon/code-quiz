@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="warning"> For a better user experience, plase switch to landscape mode.</div>
     <div id="container">
         <div id="quizintro">
             <h1>Welcome to a Coding Quiz</h1>
@@ -22,14 +23,14 @@
                 <div class="choice" id="C" onclick="checkAnswer('C')"></div>
             </div>
         </div>
-        <div id="scoreContainer" style="display: none;">
+        <div id="scoreContainer">
             <div id="playerScore">Your Score:</div>
             <div id="saveScore">Type Name to Save Score:</div>
             <form id='nameForm' method="POST">
                 <input placeholder="Your Name" type="text" name="nameText" id="nameText"/>
             </form>
         </div>
-        <div id="highScore" style="display: none;">
+        <div id="highScore">
             <div class="innerDiv">Top 3 High Scores</div>
             <div class ="innerDiv" id="highScoreOutput"></div>
             <div id="reset">Reset Sorces</div>
