@@ -15,7 +15,8 @@ body{
     text-align: center;
     padding: 10px;
 }
-#start{
+#start,
+#reset{
     font-size: 1.5em;
     font-weight: bolder;
     word-break: break-all;

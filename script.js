@@ -12,6 +12,7 @@ let playerScore = document.getElementById("playerScore");
 let nameInput = document.getElementById("nameText")
 let highScore = document.getElementById("highScore")
 let scoreOutput = document.getElementById("highScoreOutput")
+let reset = document.getElementById("reset")
 let questions = [
     {
         question: 'What does CSS stand for?',
@@ -44,7 +45,9 @@ var penaltyTime = 20 * 1000
 var tickTime = 1000
 let scoreRenderCount = 0
 let scorePerCent = 0
-let HighScores = []
+let highScoresArray = []
+
+init()
 
 function startQuiz(){
     quizintro.style.display = "none"
@@ -119,7 +122,18 @@ function tick() {
     
 }
 
+function init() {
+var retrive = JSON.parse(localStorage.getItem("highScoresArray"))
+if (retrive !== null) {
+    highScoresArray = retrive;
+  }
+}
+
+
+
+
 nameForm.addEventListener("submit", function(event){
+    console.log(highScoresArray)
     event.preventDefault()
     var nameText = nameInput.value.trim()
     if (nameText == ''){
@@ -127,13 +141,27 @@ nameForm.addEventListener("submit", function(event){
     }
     scoreDiv.style.display = "none"
     highScore.style.display = "block"
-    HighScores.push({playerName: nameText, playerScore: scorePerCent})
-    localStorage.setItem("HighScores", JSON.stringify(HighScores))
-    var retrive = JSON.parse(localStorage.getItem("HighScores"))
-    console.log(retrive)
-    
-    for (let i = 0; i < 4; i++){
-        scoreOutput.innerHTML += "<p>" + HighScores[i].playerName + ": "+ HighScores[i].playerScore + "%" + "</p>"
+    highScoresArray.push({playerName: nameText, playerScore: scorePerCent})
+    localStorage.setItem("highScoresArray", JSON.stringify(highScoresArray))
+    function compare(a, b) {
+        const playerA = a.playerScore
+        const playerB = b.playerScore
+      
+        let comparison = 0;
+        if (playerA > playerB) {
+          comparison = 1;
+        } else if (playerA < playerB) {
+          comparison = -1;
+        }
+        return comparison * -1;
     }
-    
-})  
+    highScoresArray.sort(compare);
+    for (let i = 0; i < 3; i++){
+        scoreOutput.innerHTML += "<p>" + highScoresArray[i].playerName + ": "+ highScoresArray[i].playerScore + "%" + "</p>"
+    }    
+})
+
+reset.addEventListener('click', function(){
+    scoreOutput.innerHTML = ''
+    console.log(highScoresArray)
+})
