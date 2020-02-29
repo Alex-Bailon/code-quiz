@@ -139,18 +139,18 @@ nameForm.addEventListener("submit", function(event){
         return comparison * -1;
     }
     highScoresArray.sort(compare);
-    for (let i = 0; i < 3; i++){
+    for (let i = 0; i < highScoresArray.length; i++){
+        if (i > 2){
+            break;
+        }
+        else{
         scoreOutput.innerHTML += "<p>" + highScoresArray[i].playerName + ": "+ highScoresArray[i].playerScore + "%" + "</p>"
+        }
     }    
 })
 
 reset.addEventListener('click', function(){
     highScoresArray = []
+    localStorage.setItem("highScoresArray", JSON.stringify(highScoresArray))
     scoreOutput.innerHTML = ''
-    console.log(highScoresArray)
 })
-
-let warning = document.getElementById("warning")
-if (warning.style.display == 'block'){
-    alert("Hello")
-}
