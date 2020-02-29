@@ -47,6 +47,9 @@ let scoreRenderCount = 0
 let scorePerCent = 0
 let highScoresArray = []
 
+init()
+start.addEventListener("click", startQuiz)
+
 function startQuiz(){
     quizintro.style.display = "none"
     quiz.style.display = "block"
@@ -55,11 +58,6 @@ function startQuiz(){
     formatTime(totalTime)
     
 }
-
-init()
-
-start.addEventListener("click", startQuiz)
-
 function renderQuestion(){
     let q = questions[runningQuestion]
     question.innerHTML = "<p>" + q.question + "</p>" 
@@ -67,7 +65,6 @@ function renderQuestion(){
     choiceB.innerHTML = q.choiceB
     choiceC.innerHTML = q.choiceC
 }
-
 function checkAnswer(answer){
     if( answer == questions[runningQuestion].correct){
         score++;
@@ -84,7 +81,6 @@ function checkAnswer(answer){
         scoreRender();
     }
 }
-
 function scoreRender(){
     quiz.style.display = "none";
     scoreDiv.style.display = "block";
@@ -95,7 +91,6 @@ function scoreRender(){
     scoreRenderCount++
     return scorePerCent
 }
-
 function formatTime(ms) {
     var minutes = Math.floor(ms / 60000)
     var seconds = ms % 60000
@@ -109,13 +104,11 @@ function formatTime(ms) {
         scoreRender()
     }
 }
-
 function tick() {
 	totalTime -= tickTime
 	formatTime(totalTime)
     
 }
-
 function init() {
     var retrive = JSON.parse(localStorage.getItem("highScoresArray"))
     if (retrive !== null) {
