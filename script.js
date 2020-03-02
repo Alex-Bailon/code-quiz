@@ -107,7 +107,7 @@ function formatTime(ms) {
     }
     var timerEl = document.getElementById("timer")
     timerEl.textContent = `${ minutes }:${ seconds }`
-    if (minutes == 0 && seconds == "00" && scoreRenderCount == 0){
+    if (minutes <= 0 && seconds <= "00" && scoreRenderCount == 0){
         scoreRender()
     }
 }
