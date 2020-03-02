@@ -16,7 +16,8 @@ body{
     padding: 10px;
 }
 #start,
-#reset{
+#reset,
+#retake{
     font-size: 1.5em;
     font-weight: bolder;
     word-break: break-all;
@@ -27,15 +28,14 @@ body{
     cursor: pointer;
     color :black;
     background-color: lightgray;
-    /* bottom: 0px; */
-    margin: 0 auto;
-    
+    margin: 0 auto;    
 }
 #start:hover{
     border: 3px solid green;
     color : green;
+}#retake {
+    margin-top: 5px;
 }
-
 #question{
     text-align: center;
     width:600px;
