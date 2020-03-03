@@ -164,3 +164,8 @@ reset.addEventListener('click', function(){
     localStorage.setItem("highScoresArray", JSON.stringify(highScoresArray))
     scoreOutput.innerHTML = ''
 })
+
+if (window.innerWidth < 500){
+    alert("For a better user experience, plase switch to landscape mode.")
+}
+
