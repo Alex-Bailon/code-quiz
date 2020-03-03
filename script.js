@@ -166,6 +166,6 @@ reset.addEventListener('click', function(){
 })
 
 if (window.innerWidth < 500){
-    alert("For a better user experience, plase switch to landscape mode.")
+    alert("For a better user experience, please switch to landscape mode.")
 }
 
